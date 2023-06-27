@@ -7,7 +7,7 @@ services:
       - db
     image: wordpress:latest
     ports:
-      - '8000:80'
+      - ${IP}:80:80
     restart: always
     volumes:
       - ./config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
@@ -16,10 +16,10 @@ services:
       - ./src/themes/mytheme:/var/www/html/wp-content/themes/mytheme
       - ./src/uploads:/var/www/html/wp-content/uploads
     environment:
-      WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: root
       WORDPRESS_DB_PASSWORD: '${DB_ROOT_PASSWORD}'
-      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_NAME: '${DB_NAME}'
 
   # WP-CLI
   wpcli:
@@ -41,7 +41,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: '${DB_ROOT_PASSWORD}'
-      MYSQL_DATABASE: wordpress
+      MYSQL_DATABASE: '${DB_NAME}'
 
   # PHP MY ADMIN
   pma:
