@@ -5,6 +5,8 @@ services:
   wp:
     depends_on:
       - db
+    links:
+      - db
     image: wordpress:latest
     ports:
       - ${IP}:80:80
@@ -13,7 +15,7 @@ services:
       - ./config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
       - ./wp-app:/var/www/html # Full wordpress project
       - ./app/plugins:/var/www/html/wp-content/plugins
-      - ./app/themes/custom:/var/www/html/wp-content/themes/custom
+      - ./app/themes:/var/www/html/wp-content/themes
       - ./app/uploads:/var/www/html/wp-content/uploads
     environment:
       WORDPRESS_DB_HOST: db
@@ -36,7 +38,14 @@ services:
     image: mysql:latest
     ports:
       - ${IP}:3306:3306
+    command:
+      [
+        '--default_authentication_plugin=mysql_native_password',
+        '--character-set-server=utf8mb4',
+        '--collation-server=utf8mb4_unicode_ci',
+      ]
     volumes:
+      - ./wp-data:/docker-entrypoint-initdb.d
       - db_data:/var/lib/mysql
     restart: always
     environment:
