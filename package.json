@@ -1,0 +1,18 @@
+{
+  "name": "wordpress.docker.starter",
+  "version": "1.0.0",
+  "description": "Start a new Wordpress Theme with Docker & Vite ",
+  "main": "docker-compose.yml",
+  "repository": "git@github.com:jslyonnais/wordpress.docker.starter.git",
+  "author": "Jean-Simon Lyonnais <info@devjs.io>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "docker": "docker-compose up",
+    "dev": "yarn dev",
+    "start": "concurrently \"npm run docker\" \"npm run dev\""
+  },
+  "dependencies": {
+    "concurrently": "^8.2.0"
+  }
+}

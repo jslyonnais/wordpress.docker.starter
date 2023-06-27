@@ -24,22 +24,22 @@
 #   this version ignores all files by default
 # -----------------------------------------------------------------
 
-# ignore everything in the root except the "src" directory.
+# ignore everything in the root except the "app" directory.
 /*
-!src/
+!app/
 
-# ignore everything in the "src" directory, except:
+# ignore everything in the "app" directory, except:
 # mu-plugins, plugins, and themes directories
-src/*
-!src/mu-plugins/
-!src/plugins/
-!src/themes/
+app/*
+!app/mu-plugins/
+!app/plugins/
+!app/themes/
 
 # ignore all mu-plugins, plugins, and themes
 # unless explicitly whitelisted at the end of this file
-src/mu-plugins/*
-src/plugins/*
-src/themes/*
+app/mu-plugins/*
+app/plugins/*
+app/themes/*
 
 # ignore all files starting with . or ~
 .*
@@ -107,10 +107,10 @@ Thumbs.db
 
 # track these mu-plugins, plugins, and themes
 # add your own entries here
-# !src/plugins/*
-!src/themes/*
-src/themes/*/dist/*
-!src/themes/*/dist/.gitkeep
+# !app/plugins/*
+!app/themes/*
+app/themes/*/dist/*
+!app/themes/*/dist/.gitkeep
 
 # keep track of docker component
 !config/
