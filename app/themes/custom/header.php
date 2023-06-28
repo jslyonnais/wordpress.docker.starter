@@ -1,4 +1,3 @@
-<?php $options = get_fields('options'); ?>
 <!doctype html>
 <!--[if lt IE 7 ]> <html class="ie6 ie"> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie7 ie"> <![endif]-->
