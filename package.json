@@ -9,10 +9,16 @@
   "private": true,
   "scripts": {
     "docker": "docker-compose up",
-    "dev": "yarn dev",
-    "start": "concurrently \"npm run docker\" \"npm run dev\""
+    "dev": "vite",
+    "start": "concurrently \"npm run docker\" \"npm run dev\"",
+    "build": "vite build"
   },
   "dependencies": {
-    "concurrently": "^8.2.0"
+    "concurrently": "^8.2.0",
+    "path": "^0.12.7",
+    "vite": "^4.3.9",
+    "vite-plugin-copy": "^0.1.6",
+    "vite-plugin-live-reload": "^3.0.2",
+    "vite-plugin-static-copy": "^0.16.0"
   }
 }

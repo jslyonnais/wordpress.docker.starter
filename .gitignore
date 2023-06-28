@@ -86,6 +86,7 @@ Thumbs.db
 
 # track these files, if they exist
 !.gitignore
+!.gitkeep
 !.editorconfig
 !.phpcs.xml.dist
 !README.md
@@ -118,3 +119,6 @@ app/themes/*/dist/*
 !docker-compose.yml
 !package.json
 !wp-data/*sendgrid.env
+
+# keep track of theme config files
+!vite.config.js
