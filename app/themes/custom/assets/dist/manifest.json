@@ -1,0 +1,12 @@
+{
+  "app/themes/custom/assets/src/js/main.js": {
+    "file": "scripts-bdcf250a.js",
+    "isEntry": true,
+    "src": "app/themes/custom/assets/src/js/main.js"
+  },
+  "app/themes/custom/assets/src/scss/main.scss": {
+    "file": "styles-74d94aed.css",
+    "isEntry": true,
+    "src": "app/themes/custom/assets/src/scss/main.scss"
+  }
+}

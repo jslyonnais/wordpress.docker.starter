@@ -42,32 +42,35 @@ export default defineConfig({
     }),
   ],
   // CSS configuration
-  css: {
-    preprocessorOptions: {
-      // Define options for SCSS
-      scss: {
-        // Automatically import variables.scss in all SCSS files
-        additionalData: `@import "${path.join(
-          source.src,
-          '/scss/_variables.scss'
-        )}";`,
-      },
-    },
-  },
+  // css: {
+  //   preprocessorOptions: {
+  //     // Define options for SCSS
+  //     scss: {
+  //       // Automatically import variables.scss in all SCSS files
+  //       additionalData: `@import "${path.join(
+  //         source.src,
+  //         '/scss/_variables.scss'
+  //       )}";`,
+  //     },
+  //   },
+  // },
   // Build configuration
   build: {
     // Enable the generation of a build manifest
     manifest: true,
+    minify: true,
+    write: true,
     rollupOptions: {
       // Define the entry points for the application
       input: {
-        styles: path.resolve(source.src, '/scss/main.scss'),
-        scripts: path.resolve(source.src, '/js/main.js'),
+        styles: path.join(source.src, '/scss/main.scss'),
+        scripts: path.join(source.src, '/js/main.js'),
       },
       // Define the output options for the build
       output: {
         dir: source.build,
-        entryFileNames: '[name].bundle.js',
+        entryFileNames: 'scripts-[hash].js',
+        assetFileNames: 'styles-[hash].css',
       },
     },
   },

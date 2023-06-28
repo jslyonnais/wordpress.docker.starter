@@ -15,9 +15,10 @@
   },
   "dependencies": {
     "concurrently": "^8.2.0",
+    "dotenv": "^16.3.1",
     "path": "^0.12.7",
+    "sass": "^1.63.6",
     "vite": "^4.3.9",
-    "vite-plugin-copy": "^0.1.6",
     "vite-plugin-live-reload": "^3.0.2",
     "vite-plugin-static-copy": "^0.16.0"
   }
