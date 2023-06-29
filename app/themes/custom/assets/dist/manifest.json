@@ -1,12 +1,14 @@
 {
-  "app/themes/custom/assets/src/js/main.js": {
-    "file": "scripts-bdcf250a.js",
-    "isEntry": true,
-    "src": "app/themes/custom/assets/src/js/main.js"
+  "index.css": {
+    "file": "styles-5983b0d1.css",
+    "src": "index.css"
   },
-  "app/themes/custom/assets/src/scss/main.scss": {
-    "file": "styles-74d94aed.css",
+  "index.js": {
+    "css": [
+      "styles-5983b0d1.css"
+    ],
+    "file": "scripts-0bb50ea6.js",
     "isEntry": true,
-    "src": "app/themes/custom/assets/src/scss/main.scss"
+    "src": "index.js"
   }
 }

@@ -193,17 +193,15 @@ function pretty_r($var){
 add_action('wp_enqueue_scripts', 'load_vite_assets');
 function load_vite_assets() {
   if (defined('WP_DEBUG') && WP_DEBUG) {
-    // In debug mode, load assets from the Vite server with hot reloading.
-    $vite_server = getenv('VITE_SERVER_URL');
-
     // Enqueue the main JavaScript file from the Vite server with HMR enabled.
-    wp_enqueue_script('main-js', $vite_server . 'assets/src/main.js', array(), null, true);
+    function vite_head_module_hook() {
+      echo '<script type="module" crossorigin src="' . getenv('VITE_DEV_SERVER_URL') . '/@vite/client' . '"></script>';
+      echo '<script type="module" src="' . getenv('VITE_DEV_SERVER_URL') . '/index.js' . '"></script>';
+    }
+    add_action('wp_head', 'vite_head_module_hook');
 
-    // Enqueue the main SCSS file from the Vite server as a style tag with HMR enabled.
-    wp_enqueue_style('main-css', $vite_server . 'assets/src/main.scss', array(), null);
   } else {
     // In production mode, load the assets from the 'dist' directory.
-
     // Path to the manifest file.
     $manifest_path = get_template_directory() . '/assets/dist/manifest.json';
 

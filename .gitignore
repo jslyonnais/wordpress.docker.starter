@@ -110,8 +110,6 @@ Thumbs.db
 # add your own entries here
 # !app/plugins/*
 !app/themes/*
-app/themes/*/dist/*
-!app/themes/*/dist/.gitkeep
 
 # keep track of docker component
 !config/
@@ -122,3 +120,4 @@ app/themes/*/dist/*
 
 # keep track of theme config files
 !vite.config.js
+!index.js

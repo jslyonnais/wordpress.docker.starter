@@ -22,7 +22,7 @@ export default defineConfig({
   // Define Vite plugins
   plugins: [
     // Reload the page whenever a PHP file in the theme directory changes
-    liveReload(path.resolve(__dirname, `${themes}/**/*.php`)),
+    liveReload(path.resolve(__dirname, `${themes}/**/*.{php,js,css,scss}`)),
     // Copy static files to the dist directory
     viteStaticCopy({
       targets: [
@@ -42,18 +42,18 @@ export default defineConfig({
     }),
   ],
   // CSS configuration
-  // css: {
-  //   preprocessorOptions: {
-  //     // Define options for SCSS
-  //     scss: {
-  //       // Automatically import variables.scss in all SCSS files
-  //       additionalData: `@import "${path.join(
-  //         source.src,
-  //         '/scss/_variables.scss'
-  //       )}";`,
-  //     },
-  //   },
-  // },
+  css: {
+    preprocessorOptions: {
+      // Define options for SCSS
+      scss: {
+        // Automatically import variables.scss in all SCSS files
+        additionalData: `@import "${path.join(
+          source.src,
+          '/scss/_variables.scss'
+        )}";`,
+      },
+    },
+  },
   // Build configuration
   build: {
     // Enable the generation of a build manifest
@@ -63,8 +63,7 @@ export default defineConfig({
     rollupOptions: {
       // Define the entry points for the application
       input: {
-        styles: path.join(source.src, '/scss/main.scss'),
-        scripts: path.join(source.src, '/js/main.js'),
+        main: '/index.js',
       },
       // Define the output options for the build
       output: {
@@ -78,9 +77,9 @@ export default defineConfig({
   server: {
     // Define a proxy for the server
     // This is useful when you want to integrate with a backend server
-    proxy: {
-      '/': 'http://127.0.0.1/',
-    },
+    // proxy: {
+    //   '/': 'http://127.0.0.1/',
+    // },
     // Enable CORS
     cors: true,
     // Ensure that the server uses the exact port defined in the port option
@@ -95,5 +94,9 @@ export default defineConfig({
     //  key: fs.readFileSync('localhost-key.pem'),
     //  cert: fs.readFileSync('localhost.pem'),
     //},
+
+    hmr: {
+      host: 'localhost',
+    },
   },
 });

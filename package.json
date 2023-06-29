@@ -2,24 +2,31 @@
   "name": "wordpress.docker.starter",
   "version": "1.0.0",
   "description": "Start a new Wordpress Theme with Docker & Vite ",
-  "main": "docker-compose.yml",
+  "main": "index.js",
   "repository": "git@github.com:jslyonnais/wordpress.docker.starter.git",
   "author": "Jean-Simon Lyonnais <info@devjs.io>",
   "license": "MIT",
   "private": true,
   "scripts": {
     "docker": "docker-compose up",
-    "dev": "vite",
+    "dev": "cross-env NODE_ENV=development vite",
     "start": "concurrently \"npm run docker\" \"npm run dev\"",
     "build": "vite build"
   },
   "dependencies": {
+    "autoprefixer": "^10.4.14",
     "concurrently": "^8.2.0",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.3.1",
+    "http-proxy-middleware": "^2.0.6",
     "path": "^0.12.7",
+    "postcss": "^8.4.24",
+    "postcss-import": "^15.1.0",
+    "postcss-url": "^10.1.3",
     "sass": "^1.63.6",
     "vite": "^4.3.9",
     "vite-plugin-live-reload": "^3.0.2",
-    "vite-plugin-static-copy": "^0.16.0"
+    "vite-plugin-static-copy": "^0.16.0",
+    "vite-plugin-style-import": "^2.0.0"
   }
 }
