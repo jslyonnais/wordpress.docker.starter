@@ -47,10 +47,7 @@ export default defineConfig({
       // Define options for SCSS
       scss: {
         // Automatically import variables.scss in all SCSS files
-        additionalData: `@import "${path.join(
-          source.src,
-          '/scss/_variables.scss'
-        )}";`,
+        additionalData: `@import "${'./app/themes/custom/assets/src/scss/variables'}";`,
       },
     },
   },
