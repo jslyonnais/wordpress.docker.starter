@@ -11,3 +11,7 @@ DB_NAME=wordpress
 
 - Run `docker-compose up`
 - Access using `http://localhost/`
+
+## Wordpress CLI Usage
+
+- Run `docker-compose run --rm wpcli <command>`
